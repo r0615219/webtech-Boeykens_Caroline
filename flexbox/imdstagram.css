@@ -1,0 +1,86 @@
+body{
+    background-color: gainsboro;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 3em;
+}
+
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    color: gray;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 10px;
+}
+
+a:hover{
+    color: cadetblue;
+}
+
+.logo{
+    width: 100%;
+    /*flex-basis: 100%;*/
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.2em;
+    margin: 15px auto;
+}
+
+.typography, .ui, .branding, .graffiti{
+    align-self: center;
+    text-align: center;
+    width: 110px;
+}
+
+#photos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#photos div
+{
+    display: block;
+    width: 240px;
+    margin-top: 15px;
+}
+
+@media only screen and (min-width:900px){
+    .typography, .ui, .branding, .graffiti, .logo{
+        align-self: center;
+        text-align: center;
+        width: 110px;
+        margin: 10px 0;
+    }
+    
+    .typography{
+        order: 1;
+    }
+    
+    .ui{
+        order: 2;
+    }
+    
+    .branding{
+        order: 4;
+    }
+    
+    .graffiti{
+        order: 5;
+    }
+    
+    .logo{
+        order: 3;
+    }
+}
+
+
+
+
+
