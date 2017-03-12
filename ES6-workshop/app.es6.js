@@ -3,8 +3,32 @@ let lastname = 'Boeykens';
 console.log("Hi, my name is " + firstname + " " + lastname + ".");
 console.log(`Hi, my name is ${firstname} ${lastname}.`); */
 
+class NotesApp{
+    constructor(buttonAddNote){
+        this.buttonAddNote = buttonAddNote;
+    };
+    AddNote(){
+        let newNote = document.createElement("div");
+        newNote.setAttribute("class", "card");
+        newNote.innerHTML = "<p>" + this.noteInput.value + "</p>";
 
-function CardApp() {
+        let notelink = document.createElement("a");
+        notelink.setAttribute("class", "card-remove");
+        notelink.innerHTML = "remove";
+        notelink.setAttribute("href", "#");
+        notelink.addEventListener("click", this.removeNote);
+
+        newNote.appendChild(notelink);
+
+        this.notesContainer.appendChild(newNote);
+    };
+}
+
+let myApp = new NotesApp("myApp");
+myApp.AddNote();
+
+
+/*function CardApp() {
 	this.buttonAddNote = document.getElementById('btnAddNote');
 	this.notesContainer = document.querySelector(".notes");
 	this.noteInput = document.querySelector("#txtAddNote");
@@ -31,6 +55,7 @@ CardApp.prototype.addNote = function() {
 	newNote.appendChild(notelink);
 
 	this.notesContainer.appendChild(newNote);
+    
 	this.resetForm();
 }
 
@@ -44,4 +69,4 @@ CardApp.prototype.removeNote = function(e) {
 }
 
 
-var myApp = new CardApp();
+var myApp = new CardApp();*/
