@@ -13,7 +13,7 @@ class NotesApp {
     }
 
     addNote() {
-        const newNote = document.createElement("div"); //<div> </div>
+        let newNote = document.createElement("div"); //<div> </div>
         newNote.setAttribute("class", "card"); // <div>
         newNote.innerHTML = `<p>${this.noteInput.value}</p>`;
         
@@ -30,7 +30,7 @@ class NotesApp {
     }
 
     removeNote(e) {
-        const noteToRemove = e.target.parentElement;
+        let noteToRemove = e.target.parentElement;
         this.notesContainer.removeChild(noteToRemove);
         e.preventDefault();
     }
