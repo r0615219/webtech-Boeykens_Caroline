@@ -1,72 +1,40 @@
-/*let firstname = 'Caro';
-let lastname = 'Boeykens';
-console.log("Hi, my name is " + firstname + " " + lastname + ".");
-console.log(`Hi, my name is ${firstname} ${lastname}.`); */
+class NotesApp {
+    constructor() {
+        this.buttonAddNote = document.getElementById("btnAddNote");
+        this.notesContainer = document.querySelector(".notes");
+        this.noteInput = document.querySelector("#txtAddNote");
+        
+        this.buttonAddNote.addEventListener("click", this.addNote.bind(this));
+    }
 
-class NotesApp{
-    constructor(buttonAddNote){
-        this.buttonAddNote = buttonAddNote;
-    };
-    AddNote(){
-        let newNote = document.createElement("div");
-        newNote.setAttribute("class", "card");
-        newNote.innerHTML = "<p>" + this.noteInput.value + "</p>";
+    resetForm() {
+        this.noteInput.value = "";
+        this.noteInput.focus();
+    }
 
-        let notelink = document.createElement("a");
-        notelink.setAttribute("class", "card-remove");
-        notelink.innerHTML = "remove";
-        notelink.setAttribute("href", "#");
-        notelink.addEventListener("click", this.removeNote);
-
-        newNote.appendChild(notelink);
-
+    addNote() {
+        const newNote = document.createElement("div"); //<div> </div>
+        newNote.setAttribute("class", "card"); // <div>
+        newNote.innerHTML = `<p>${this.noteInput.value}</p>`;
+        
+        const noteLink = document.createElement("a");
+        noteLink.setAttribute("class", "card-remove");
+        noteLink.innerHTML = "Remove";
+        noteLink.setAttribute("href", "#");
+        noteLink.addEventListener("click", this.removeNote.bind(this));
+        
+        newNote.appendChild(noteLink);
+        
         this.notesContainer.appendChild(newNote);
-    };
-}
+        this.resetForm();
+    }
 
-let myApp = new NotesApp("myApp");
-myApp.AddNote();
-
-
-/*function CardApp() {
-	this.buttonAddNote = document.getElementById('btnAddNote');
-	this.notesContainer = document.querySelector(".notes");
-	this.noteInput = document.querySelector("#txtAddNote");
-
-	this.buttonAddNote.addEventListener("click", this.addNote.bind(this));
-}
-
-CardApp.prototype.resetForm = function() {
-	this.noteInput.value ="";
-	this.noteInput.focus();
-}
-
-CardApp.prototype.addNote = function() {
-	var newNote = document.createElement("div");
-	newNote.setAttribute("class", "card");
-	newNote.innerHTML = "<p>" + this.noteInput.value + "</p>";
-
-	var notelink = document.createElement("a");
-	notelink.setAttribute("class", "card-remove");
-	notelink.innerHTML = "remove";
-	notelink.setAttribute("href", "#");
-	notelink.addEventListener("click", this.removeNote);
-
-	newNote.appendChild(notelink);
-
-	this.notesContainer.appendChild(newNote);
-    
-	this.resetForm();
-}
-
-CardApp.prototype.removeNote = function(e) {
-	var noteToRemove = e.target.parentElement;
-    this.notesContainer.removeChild(noteToRemove);
-    
-    e.preventDefault();
-    
-    //ERGENS NOG EEN FOUTJE
+    removeNote(e) {
+        const noteToRemove = e.target.parentElement;
+        this.notesContainer.removeChild(noteToRemove);
+        e.preventDefault();
+    }
 }
 
 
-var myApp = new CardApp();*/
+const myApp = new NotesApp();
