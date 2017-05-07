@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    font-family: sans-serif;
+    color: white;
+}
+
+.container{
+    width: 375px;
+    height: 667px;
+    margin: 50px auto;
+    background-image: url(../images/weather_bg-01.png);
+    overflow: hidden;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav .icon{
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+#location{
+    font-size: 1.5em;
+    padding-top: 0.5em;
+}
+
+#app h1{
+    text-align: center;
+    font-size: 5em;
+    margin-top: 0.7em;
+}
+
+#options{
+    margin-top: 21em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.options #options li a:link,
+.options #options li a:visited,
+.options #options li a:hover,
+.options #options li a:active{
+    text-decoration: none;
+    color: white;
+    width: 30px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px 10px 30px 10px;
+    text-align: center;
+    background-color: #635B4F;
+    border-radius: 50%;
+}
+
+hr{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infos li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    height: 30px;
+}
+
+
+
+
+
+
+
+
+
+
