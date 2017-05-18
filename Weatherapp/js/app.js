@@ -114,7 +114,7 @@ class Weather
             var veilig;
             var veiligheid;
             
-            if(this.weather.temperature < 2 || (this.weather.humidity*100) > 80 || this.weather.windSpeed > 11){
+            if(this.weather.temperature < 3 || (this.weather.humidity*100) > 80 || this.weather.windSpeed > 9){
                 veilig = '&#128545;';
             } else {
                 veilig = '&#128522;';
@@ -122,7 +122,7 @@ class Weather
             $('#h1').html(veilig);
             
             for (var i = 1; i < 6; i++) { 
-                if(this.otherHours.data[i].temperature < 0 || (this.otherHours.data[i].humidity*100) > 90 || this.otherHours.data[i].windSpeed > 11){
+                if(this.otherHours.data[i].temperature < 3 || (this.otherHours.data[i].humidity*100) > 80 || this.otherHours.data[i].windSpeed > 9){
                     veiligheid = '&#128545;';
                 } else {
                     veiligheid = '&#128522;';
