@@ -49,26 +49,36 @@ class Weather
     getOptions(){
         var that = this;
         
-        $('#temperatuur').on('click', function(){
+        $('#temperatuur').on('click', function(e){
             that.options = 'temperatuur';
             that.getWeather();
+            e.preventDefault;
         });
-        $('#neerslag').on('click', function(){
+        $('#neerslag').on('click', function(e){
             that.options = 'neerslag';
             that.getWeather();
+            e.preventDefault;
         });
-        $('#luchtdruk').on('click', function(){
+        $('#luchtdruk').on('click', function(e){
             that.options = 'luchtdruk';
             that.getWeather();
+            e.preventDefault;
         });
-        $('#windsnelheid').on('click', function(){
+        $('#windsnelheid').on('click', function(e){
             that.options = 'windsnelheid';
             that.getWeather();
+            e.preventDefault;
+        });
+        $('#veiligheid').on('click', function(e){
+            that.options = 'veiligheid';
+            that.getWeather();
+            e.preventDefault;
         });
         that.getWeather();
     }
 
     updateUI(){
+        
         this.hours = this.date.getHours();
         $('#location').html(this.location);
         $('#currentTime').html(this.hours + ':00');
@@ -99,6 +109,25 @@ class Weather
             $('#h1').html(`${Math.round(this.weather.windSpeed)}Bft`);
             for (var i = 1; i < 6; i++) { 
                 $('#info' + i).html(`${Math.round(this.otherHours.data[i].windSpeed)}Bft`);
+            }
+        } else if (this.options == 'veiligheid'){
+            var veilig;
+            var veiligheid;
+            
+            if(this.weather.temperature < 2 || (this.weather.humidity*100) > 80 || this.weather.windSpeed > 11){
+                veilig = '&#128545;';
+            } else {
+                veilig = '&#128522;';
+            }
+            $('#h1').html(veilig);
+            
+            for (var i = 1; i < 6; i++) { 
+                if(this.otherHours.data[i].temperature < 0 || (this.otherHours.data[i].humidity*100) > 90 || this.otherHours.data[i].windSpeed > 11){
+                    veiligheid = '&#128545;';
+                } else {
+                    veiligheid = '&#128522;';
+                }
+                $('#info' + i).html(veiligheid);
             }
         }
         
